@@ -9,17 +9,22 @@ const MATERIALS = {
   amethyst: {colors:[0x9a5cc6, 0xd9b3ff], flags: ['']},  
  ender_pearl: {colors:[0x1f6b5c, 0x7fe3c8], flags: ['dust']}, 
   nether_quartz: {colors:[0xe8e0d6, 0xffffff], flags: ['']},
-  vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['']}
+  vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['ingot', 'metal_block', 'nugget', 'raw_ore']}
 }
-
+// Rename raw ore so it's a prefix instead of a suffix
 const FORMS = {
   dust:  { texture: 'kubejs:item/dust',  plural: 'dusts',  label: 'Dust',  layers: 2 },
   plate: { texture: 'kubejs:item/plate', plural: 'plates', label: 'Plate', layers: 2 },
   rod:   { texture: 'kubejs:item/rod',   plural: 'rods',   label: 'Rod',   layers: 1 },
   gear:  { texture: 'kubejs:item/gear',  plural: 'gears',  label: 'Gear',  layers: 2 },
-  ingot:  { texture: 'kubejs:item/ingot',  plural: 'ingots',  label: 'Ingot',  layers: 1 }
+  ingot:  { texture: 'kubejs:item/ingot',  plural: 'ingots',  label: 'Ingot',  layers: 1 },
+  nugget:  { texture: 'kubejs:item/nugget',  plural: 'nuggets',  label: 'Nugget',  layers: 1 },
+  raw_ore:  { texture: 'kubejs:item/raw_ore',  plural: 'raw_ores',  label: 'Raw Ore',  layers: 1 }
 }
 
+const BLOCK_FORMS = {
+  metal_block: {suffix: 'block', label: 'Block', tag: 'c:storage_blocks', model: 'kubejs:block/metal_block', layers: 1}
+}
 
 const DUST_TEXTURE = 'kubejs:item/dust'
 const PLATE_TEXTURE = 'kubejs:item/plate'
@@ -41,6 +46,7 @@ StartupEvents.registry('item', event => {
    const { colors, flags } = MATERIALS[material]
 
        flags.forEach(flag => {
+          if (BLOCK_FORMS[flag]) return
       const form = FORMS[flag]
       if (!form) {
         console.warn(`[materials] Unknown flag '${flag}' on material '${material}', skipping`)
@@ -61,3 +67,32 @@ StartupEvents.registry('item', event => {
   })
 })
  
+StartupEvents.registry('block', event => {
+  Object.keys(MATERIALS).forEach(material => {
+    const { colors, flags } = MATERIALS[material]
+
+    flags.forEach(flag => {
+      const form = BLOCK_FORMS[flag]
+      if (!form) return
+
+      const block = event.create(`${material}_${form.suffix}`)
+        .displayName(`${titleCase(material)} ${form.label}`)
+        .texture(form.model)
+        .hardness(5)
+        .resistance(6)
+        .requiresTool(true)
+        .tagBlock('minecraft:mineable/pickaxe')
+        .tagBoth(form.tag)
+        .tagBoth(`${form.tag}/${material}`)
+
+      for (let i = 0; i < form.layers; i++) {
+        block.color(i, colors[i])
+      }
+      block.item(item => {
+        for (let i = 0; i < form.layers; i++) {
+          item.color(i, colors[i])
+        }
+      })
+    })
+  })
+})

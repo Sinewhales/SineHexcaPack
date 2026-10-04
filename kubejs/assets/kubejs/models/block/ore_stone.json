@@ -1,0 +1,7 @@
+{
+  "parent": "kubejs:block/ore_base",
+  "textures": {
+    "base": "minecraft:block/stone",
+    "overlay": "kubejs:block/ore"
+  }
+}

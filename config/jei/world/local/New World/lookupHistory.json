@@ -1,11 +1,12 @@
 [
   {"version":1},
+  {"ingredient":{"id":"kubejs:vibranium_block"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"kubejs:vibranium_ingot"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"minecraft:dirt"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"kubejs:ender_pearl_dust"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"ae2:ender_dust"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"ae2:sky_dust"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"minecraft:quartz"},"type":"item_stack","bookmarkType":"INGREDIENT"},
-  {"ingredient":{"id":"kubejs:nether_quartz_dust"},"type":"item_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"minecraft:water"},"type":"fluid_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"minecraft:milk"},"type":"fluid_stack","bookmarkType":"INGREDIENT"},
   {"ingredient":{"id":"minecraft:amethyst_shard"},"type":"item_stack","bookmarkType":"INGREDIENT"},
