@@ -1,14 +1,25 @@
-const DUST_MATERIALS = {
-  iron:   [0xd8d8d8, 0x8a8a8a],
-  copper:   [0xe07a4a, 0xffb27d],
-  gold:   [0xfcdf4d, 0xfff3a0],
-  diamond: [0x4aedd9, 0xcffffa],  
-  emerald: [0x17dd62, 0xa6f7c0],
-  netherite: [0x5e5057, 0x9a7f86],
-  lapis: [0x2a52be, 0x7fa0ff],
-  amethyst: [0x9a5cc6, 0xd9b3ff]
-
+const MATERIALS = {
+  iron:   {colors: [0xd8d8d8, 0x8a8a8a], flags: ['']},
+  copper: {colors: [0xe07a4a, 0xffb27d], flags: ['']},
+  gold:   {colors:[0xfcdf4d, 0xfff3a0], flags: ['']},
+  diamond: {colors:[0x4aedd9, 0xcffffa], flags: ['']},  
+  emerald: {colors:[0x17dd62, 0xa6f7c0], flags: ['']},  
+  netherite: {colors:[0x5e5057, 0x9a7f86], flags: ['']},  
+  lapis: {colors:[0x2a52be, 0x7fa0ff], flags: ['']},  
+  amethyst: {colors:[0x9a5cc6, 0xd9b3ff], flags: ['']},  
+ ender_pearl: {colors:[0x1f6b5c, 0x7fe3c8], flags: ['dust']}, 
+  nether_quartz: {colors:[0xe8e0d6, 0xffffff], flags: ['']},
+  vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['']}
 }
+
+const FORMS = {
+  dust:  { texture: 'kubejs:item/dust',  plural: 'dusts',  label: 'Dust',  layers: 2 },
+  plate: { texture: 'kubejs:item/plate', plural: 'plates', label: 'Plate', layers: 2 },
+  rod:   { texture: 'kubejs:item/rod',   plural: 'rods',   label: 'Rod',   layers: 1 },
+  gear:  { texture: 'kubejs:item/gear',  plural: 'gears',  label: 'Gear',  layers: 2 },
+  ingot:  { texture: 'kubejs:item/ingot',  plural: 'ingots',  label: 'Ingot',  layers: 1 }
+}
+
 
 const DUST_TEXTURE = 'kubejs:item/dust'
 const PLATE_TEXTURE = 'kubejs:item/plate'
@@ -26,39 +37,27 @@ function titleCase(str) {
 }
 
 StartupEvents.registry('item', event => {
-  Object.keys(DUST_MATERIALS).forEach(material => {
-    const color = DUST_MATERIALS[material]
+  Object.keys(MATERIALS).forEach(material => {
+   const { colors, flags } = MATERIALS[material]
 
-    event.create(`${material}_dust`)
-      .displayName(`${titleCase(material)} Dust`)
-      .texture(DUST_TEXTURE)       
-      .color(0, color[0])
-      .color(1, color[1])
-      .tag('c:dusts')              
-      .tag(`c:dusts/${material}`)
+       flags.forEach(flag => {
+      const form = FORMS[flag]
+      if (!form) {
+        console.warn(`[materials] Unknown flag '${flag}' on material '${material}', skipping`)
+        return
+      }
 
-   if (GEM.includes(material)) return
-     event.create(`${material}_plate`)
-      .displayName(`${titleCase(material)} Plate`)
-      .texture(PLATE_TEXTURE)      
-      .color(0, color[0])
-      .color(1, color[1])
-      .tag('c:plates')              
-      .tag(`c:plates/${material}`)
+     const item = event.create(`${material}_${flag}`)
+        .displayName(`${titleCase(material)} ${form.label}`)
+        .texture(form.texture)
+        .tag(`c:${form.plural}`)
+        .tag(`c:${form.plural}/${material}`)
 
-     event.create(`${material}_rod`)
-      .displayName(`${titleCase(material)} Rod`)
-      .texture(ROD_TEXTURE)      
-      .color(0, color[0])
-      .tag('c:rods')              
-      .tag(`c:rods/${material}`)
 
-     event.create(`${material}_gear`)
-      .displayName(`${titleCase(material)} Gear`)
-      .texture(GEAR_TEXTURE)      
-      .color(0, color[0])
-      .color(1, color[1])
-      .tag('c:gears')              
-      .tag(`c:gears/${material}`)
+      for (let i = 0; i < form.layers; i++) {
+        item.color(i, colors[i])
+      }
+    })
   })
 })
+ 
