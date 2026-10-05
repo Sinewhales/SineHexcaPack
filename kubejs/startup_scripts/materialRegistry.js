@@ -9,7 +9,7 @@ const MATERIALS = {
   amethyst: {colors:[0x9a5cc6, 0xd9b3ff], flags: ['']},  
  ender_pearl: {colors:[0x1f6b5c, 0x7fe3c8], flags: ['dust']}, 
   nether_quartz: {colors:[0xe8e0d6, 0xffffff], flags: ['']},
-  vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['ingot', 'metal_block', 'nugget', 'raw_ore']}
+  vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['ingot', 'metal_block', 'nugget', 'raw_ore', 'ore_end']}
 }
 // Rename raw ore so it's a prefix instead of a suffix
 const FORMS = {
@@ -23,7 +23,8 @@ const FORMS = {
 }
 
 const BLOCK_FORMS = {
-  metal_block: {suffix: 'block', label: 'Block', tag: 'c:storage_blocks', model: 'kubejs:block/metal_block', layers: 1}
+  metal_block: {suffix: 'block', label: 'Block', tag: 'c:storage_blocks', model: 'kubejs:block/metal_block', layers: 1},
+  ore_end: {suffix: 'end_ore', label: 'Ore', tag: 'c:ores', model: 'kubejs:block/ore_end', layers: 1}
 }
 
 const DUST_TEXTURE = 'kubejs:item/dust'

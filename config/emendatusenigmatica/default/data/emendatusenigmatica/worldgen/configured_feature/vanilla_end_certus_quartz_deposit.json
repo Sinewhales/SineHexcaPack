@@ -1,0 +1,23 @@
+{
+  "type": "emendatusenigmatica:vanilla_feature",
+  "config": {
+    "model": {
+      "type": "emendatusenigmatica:vanilla_deposit",
+      "biomes": [],
+      "config": {
+        "chance": 10,
+        "fillerTypes": [
+          "minecraft_end_stone"
+        ],
+        "material": "certus_quartz",
+        "maxYLevel": 80,
+        "minYLevel": 0,
+        "placement": "uniform",
+        "rarity": "common",
+        "size": 8
+      },
+      "dimension": "minecraft:the_end",
+      "registryName": "vanilla_end_certus_quartz_deposit"
+    }
+  }
+}

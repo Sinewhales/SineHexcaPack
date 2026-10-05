@@ -1,0 +1,10 @@
+{
+  "id": "minecraft_end_stone",
+  "baseTexture": "minecraft:block/end_stone",
+  "suffix": "end_stone",
+  "fillerType": "minecraft:end_stone",
+  "localizedName": "End Stone",
+  "harvestTool": "pickaxe",
+  "hardness": 3.0,
+  "resistance": 9.0
+}
