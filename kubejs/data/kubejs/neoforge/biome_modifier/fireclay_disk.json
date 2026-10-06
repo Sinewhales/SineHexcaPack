@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_mountain",
+  "features": "kubejs:fireclay_disk",
+  "step": "underground_ores"
+}

@@ -11,6 +11,9 @@
   "ae2:part_tooltip": null,
   "ae2:pattern_provider": null,
   "ae2:power_storage": null,
+  "hephaestus:hidden_items": null,
+  "hephaestus:melter_progress": null,
+  "hephaestus:smeltery_progress": null,
   "jade:block_face": null,
   "jade:block_properties": null,
   "jade:block_states": null,
@@ -70,5 +73,12 @@
   "minecraft:total_enchantment_power": null,
   "minecraft:villager_profession": null,
   "minecraft:waxed": null,
-  "minecraft:zombie_villager": null
+  "minecraft:zombie_villager": null,
+  "modern_industrialization:machine": null,
+  "modern_industrialization:overclock": null,
+  "modern_industrialization:pipe": null,
+  "modern_industrialization:tank": null,
+  "oritech:machine_core_controller": null,
+  "rats:rat_house": null,
+  "rats:tamed_rat_info": null
 }

@@ -1,14 +1,26 @@
 const MATERIALS = {
-  iron:   {colors: [0xd8d8d8, 0x8a8a8a], flags: ['']},
-  copper: {colors: [0xe07a4a, 0xffb27d], flags: ['']},
-  gold:   {colors:[0xfcdf4d, 0xfff3a0], flags: ['']},
+  iron:   {colors: [0xd8d8d8, 0x8a8a8a], flags: ['dust']},
+  copper: {colors: [0xe07a4a, 0xffb27d], flags: ['dust', 'gear', 'nugget', 'plate', 'rod']},
+  gold:   {colors:[0xfcdf4d, 0xfff3a0], flags: ['dust']},
   diamond: {colors:[0x4aedd9, 0xcffffa], flags: ['']},  
   emerald: {colors:[0x17dd62, 0xa6f7c0], flags: ['']},  
   netherite: {colors:[0x5e5057, 0x9a7f86], flags: ['']},  
   lapis: {colors:[0x2a52be, 0x7fa0ff], flags: ['']},  
   amethyst: {colors:[0x9a5cc6, 0xd9b3ff], flags: ['']},  
  ender_pearl: {colors:[0x1f6b5c, 0x7fe3c8], flags: ['dust']}, 
-  nether_quartz: {colors:[0xe8e0d6, 0xffffff], flags: ['']},
+  nether_quartz: {colors:[0xe8e0d6, 0xffffff], flags: ['dust']},
+  coal: {colors:[0x2b2b2b, 0x5a5a5a], flags: ['dust']},
+  // Modded
+  nickel: {colors:[0xbfc9a8, 0x8d9a73], flags: ['ingot', 'raw_ore', 'dust', 'nugget', 'metal_block']},
+  platinum: {colors:[0xd9e2ea, 0xffffff], flags: ['ingot', 'raw_ore', 'dust', 'nugget', 'metal_block']},
+  electrum: {colors:[0xe3d28a, 0xfff2b8], flags: ['ingot', 'dust', 'metal_block']},
+  steel: {colors:[0x6e747d, 0xaab1bb], flags: ['ingot', 'dust', 'metal_block', 'plate', 'gear', 'nugget', 'rod']},
+  uranium: {colors:[0x5f7a4a, 0x9dff4f], flags: ['ingot', 'raw_ore', 'dust', 'metal_block']},
+  bronze: {colors:[0xb87333, 0xe0a458], flags: ['plate', 'gear', 'ingot', 'rod', 'dust']},
+  tin: {colors:[0xb8c4cc, 0xeef4f8], flags: ['raw_ore', 'ingot', 'dust']},
+
+  
+  // Custom
   vibranium: {colors:[0x6b6f80, 0xa66bff], flags: ['ingot', 'metal_block', 'nugget', 'raw_ore', 'ore_end']}
 }
 // Rename raw ore so it's a prefix instead of a suffix

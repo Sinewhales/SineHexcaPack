@@ -52,12 +52,19 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
+  "hephaestus": {
+    "melter_progress": true,
+    "smeltery_progress": true
+  },
   "jade_access": {
     "held_item": true,
     "sign": true,
     "block": true,
     "entity": true,
     "entity_variant": true
+  },
+  "oritech": {
+    "machine_core_controller": true
   },
   "jade": {
     "coordinates.rel": false,
@@ -69,6 +76,10 @@
     "registry_name": "OFF",
     "block_properties": false,
     "mod_name": true
+  },
+  "modern_industrialization": {
+    "overclock": true,
+    "pipe": true
   },
   "ae2": {
     "part_icon": true,

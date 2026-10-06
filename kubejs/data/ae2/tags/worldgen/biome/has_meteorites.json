@@ -2,7 +2,7 @@
   "values": [
     {
       "id": "#minecraft:is_end",
-      "required": false
+      "required": true
     }
   ]
 }
